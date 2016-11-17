@@ -4,6 +4,7 @@ var path = require('path');
 var webpack = require('webpack');
 var del = require('del');
 var OptimizeJsPlugin = require("optimize-js-plugin");
+var CompressionPlugin = require("compression-webpack-plugin");
 
 class CleanPlugin {
   constructor(options) {
@@ -60,6 +61,11 @@ module.exports = {
       'process.env':{
         'NODE_ENV': JSON.stringify('production')
       }
+    }),
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      minRatio: 0.8
     })
   ],
   module: {

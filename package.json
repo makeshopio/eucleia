@@ -55,6 +55,7 @@
     "babel-preset-es2015-loose": "^8.0.0",
     "bootstrap-loader": "^2.0.0-beta.14",
     "bootstrap-sass": "^3.3.7",
+    "compression-webpack-plugin": "^0.3.2",
     "css-loader": "^0.26.0",
     "del": "^2.2.1",
     "extract-text-webpack-plugin": "2.0.0-beta.4",
