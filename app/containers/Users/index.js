@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import Link from 'react-router/lib/Link';
-import * as UsersActions from '../redux/modules/users';
-import UserList from '../components/UserList';
+import * as UsersActions from '../../redux/modules/users';
+import UserList from '../../components/UserList';
 
-class Home extends Component {
+class Users extends Component {
 
   static readyOnActions(dispatch) {
     return Promise.all([
@@ -14,7 +14,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    Home.readyOnActions(this.props.dispatch);
+    Users.readyOnActions(this.props.dispatch);
   }
 
   renderUsers() {
@@ -35,7 +35,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Helmet title='Home' />
+        <Helmet title='Users' />
         <h5>Users:</h5>
         {this.renderUsers()}
       </div>
@@ -49,4 +49,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Users);

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import * as UserActions from '../redux/modules/user';
-import UserCard from '../components/UserCard';
+import * as UserActions from '../../redux/modules/user';
+import UserCard from '../../components/UserCard';
 
 class User extends Component {
   static readyOnActions(dispatch, params) {
