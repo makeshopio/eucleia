@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/makeshopio/eucleia",
   "scripts": {
-    "start": "node server",
-    "start-prod": "npm run build && NODE_ENV=production PORT=3000 node server",
+    "start": "node ./server.js",
+    "start-prod": "npm run build && NODE_ENV=production PORT=3000 node ./server.js",
     "build": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress"
   },
   "dependencies": {
@@ -48,6 +48,11 @@
     "babel-plugin-module-resolver": "^2.3.0",
     "babel-plugin-react-transform": "^2.0.2",
     "babel-plugin-transform-object-assign": "^6.8.0",
+    "babel-plugin-transform-react-constant-elements": "^6.9.1",
+    "babel-plugin-transform-react-inline-elements": "^6.8.0",
+    "babel-plugin-transform-react-pure-class-to-function": "^1.0.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.2.10",
+    "babel-preset-es2015-loose": "^8.0.0",
     "bootstrap-loader": "^2.0.0-beta.14",
     "bootstrap-sass": "^3.3.7",
     "css-loader": "^0.26.0",
@@ -55,6 +60,7 @@
     "extract-text-webpack-plugin": "2.0.0-beta.4",
     "file-loader": "^0.9.0",
     "node-sass": "^3.13.0",
+    "optimize-js-plugin": "^0.0.4",
     "react-transform-hmr": "^1.0.4",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.2",
