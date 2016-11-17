@@ -45,6 +45,8 @@ if (!process.env.NODE_ENV) {
     }
   }));
   server.use(hot(compiler));
+} else {
+  server.use(require('compression')());
 }
 
 server.get('*', require('./app').default);
