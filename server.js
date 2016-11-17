@@ -51,5 +51,5 @@ server.get('*', require('./app').default);
 
 server.listen(port, (err) => {
   if (err) console.error(err);
-  console.info(`⚡⚡⚡ Server running on http://localhost:${port}/`);
+  console.info(`Server running on http://localhost:${port}/`);
 });
