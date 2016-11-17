@@ -47,7 +47,7 @@ if (!process.env.NODE_ENV) {
   server.use(hot(compiler));
 }
 
-server.get('*', require('./app').serverMiddleware);
+server.get('*', require('./app').default);
 
 server.listen(port, (err) => {
   if (err) console.error(err);

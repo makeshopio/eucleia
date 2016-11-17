@@ -5,7 +5,6 @@ import { Link } from 'react-router';
 import * as UsersActions from '../redux/modules/users';
 import UserList from '../components/UserList';
 
-// @connect(state => { users: state.users })
 class Home extends Component {
 
   static readyOnActions(dispatch) {

@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 import * as UserActions from '../redux/modules/user';
 import UserCard from '../components/UserCard';
 
-// @connect(state => { user: state.user })
 class User extends Component {
-
   static readyOnActions(dispatch, params) {
     return Promise.all([
       dispatch(UserActions.fetchUserIfNeeded(params.id))
