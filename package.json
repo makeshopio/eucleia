@@ -1,0 +1,54 @@
+{
+  "name": "eucleia",
+  "version": "0.1.0",
+  "description": "A glorious, comprehensive, boilerplate for universal React, Redux, Flow, etc. front-ends.",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/makeshopio/eucleia.git"
+  },
+  "keywords": [
+    "react",
+    "isomorphic",
+    "universal",
+    "redux",
+    "flow"
+  ],
+  "author": "Aaron Dancer <me@aarondancer.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/makeshopio/eucleia/issues"
+  },
+  "homepage": "https://github.com/makeshopio/eucleia",
+  "scripts": {
+    "start": "node server",
+    "start-prod": "npm run build && NODE_ENV=production PORT=3000 node server",
+    "build": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress"
+  },
+  "dependencies": {
+    "babel-core": "^6.13.2",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "express": "^4.14.0",
+    "history": "^3.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-helmet": "^3.1.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.6.1",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "del": "^2.2.1",
+    "react-transform-hmr": "^1.0.4",
+    "webpack": "^2.1.0-beta.5",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.12.2"
+  }
+}
