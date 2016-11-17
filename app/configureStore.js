@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import rootReducer from './reducers';
+import rootReducer from './redux/reducers';
 
 const createStoreWithMiddleware = applyMiddleware(
   thunkMiddleware
@@ -11,8 +11,8 @@ export default function configureStore(initialState) {
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('./reducers', () => {
-      const nextRootReducer = require('./reducers').default;
+    module.hot.accept('./redux/reducers', () => {
+      const nextRootReducer = require('./redux/reducers').default;
       store.replaceReducer(nextRootReducer);
     });
   }

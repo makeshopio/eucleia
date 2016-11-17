@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import * as UsersActions from '../actions/users';
+import * as UsersActions from '../redux/modules/users';
 import UserList from '../components/UserList';
 
 // @connect(state => { users: state.users })
