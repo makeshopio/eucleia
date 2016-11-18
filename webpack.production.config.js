@@ -5,6 +5,7 @@ var webpack = require('webpack');
 var del = require('del');
 var OptimizeJsPlugin = require("optimize-js-plugin");
 var CompressionPlugin = require("compression-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 class CleanPlugin {
   constructor(options) {
@@ -17,7 +18,7 @@ class CleanPlugin {
 }
 
 module.exports = {
-  entry: './app/index',
+  entry: ['bootstrap-loader/extractStyles', './app/index'],
   devtool: 'source-map',
   output: {
     path: path.join(__dirname, 'dist'),
@@ -31,6 +32,7 @@ module.exports = {
     }
   },
   plugins: [
+    new ExtractTextPlugin('[name].min.css'),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new CleanPlugin({
       files: ['dist/*']
@@ -69,29 +71,59 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [{
-      test: /\.js?$/,
-      loader: 'babel-loader',
-      include: [
-        path.join(__dirname, 'app'),
-        path.resolve(__dirname, 'node_modules/preact-compat'),
-      ],
-      query: {
-        plugins: [
-          'transform-object-assign',
-          'transform-react-constant-elements',
-          // 'transform-react-inline-elements',
-          'transform-react-remove-prop-types',
-          'transform-react-pure-class-to-function',
-          ['module-resolver', {
-            'root': ['.'],
-            'alias': {
-                'react': 'preact-compat',
-                'react-dom': 'preact-compat'
-            }
-          }]
-        ]
-      }
-    }]
+    loaders: [
+      {
+        test: /\.js?$/,
+        loader: 'babel-loader',
+        include: [
+          path.join(__dirname, 'app'),
+          path.resolve(__dirname, 'node_modules/preact-compat'),
+        ],
+        query: {
+          plugins: [
+            'transform-object-assign',
+            'transform-react-constant-elements',
+            // 'transform-react-inline-elements',
+            'transform-react-remove-prop-types',
+            'transform-react-pure-class-to-function',
+            ['module-resolver', {
+              'root': ['.'],
+              'alias': {
+                  'react': 'preact-compat',
+                  'react-dom': 'preact-compat'
+              }
+            }]
+          ]
+        }
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style',
+          loader: 'css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]' +
+          '!postcss',
+        }),
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style',
+          loader: 'css?modules&importLoaders=2&localIdentName=[name]__[local]__[hash:base64:5]' +
+            '!postcss' +
+          '!sass',
+        }),
+      },
+
+      {
+        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract text plugin
+        // loader: "url?limit=10000"
+        loader: 'url',
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        loader: 'file',
+      },
+    ]
   }
 };

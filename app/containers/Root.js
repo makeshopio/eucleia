@@ -23,6 +23,7 @@ class Root extends Component {
           {head.title.toComponent()}
           {head.meta.toComponent()}
           {head.link.toComponent()}
+          {process.env.NODE_ENV && <link rel="stylesheet" href="/main.min.css" />}
         </head>
         <body>
           <div id='root' dangerouslySetInnerHTML={{__html: this.props.content}} />

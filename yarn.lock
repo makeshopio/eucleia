@@ -979,7 +979,7 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
-bootstrap-loader:
+bootstrap-loader@2.0.0-beta.14:
   version "2.0.0-beta.14"
   resolved "https://registry.yarnpkg.com/bootstrap-loader/-/bootstrap-loader-2.0.0-beta.14.tgz#bfcf97398dfbb98a802f5ef0d9b12c916f6cec4d"
   dependencies:
@@ -4253,9 +4253,9 @@ webpack-sources@^0.1.0, webpack-sources@^0.1.2:
     source-list-map "~0.1.0"
     source-map "~0.5.3"
 
-webpack@2.1.0-beta.25:
-  version "2.1.0-beta.25"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-2.1.0-beta.25.tgz#c35ff4da4ee70344a2f14c35258d95412709e9ed"
+webpack@2.1.0-beta.24:
+  version "2.1.0-beta.24"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-2.1.0-beta.24.tgz#023f4ad4cad5c6b6eeaaa8aad212c404547f9c41"
   dependencies:
     acorn "^3.2.0"
     ajv "^4.7.0"
