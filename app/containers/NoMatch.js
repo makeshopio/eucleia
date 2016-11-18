@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
+import { Container } from '../components';
 
 class NoMatch extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <Helmet title='Not Found' />
         Page was not found
-      </div>
+      </Container>
     )
   }
 }

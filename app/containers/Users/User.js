@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import * as UserActions from '../../redux/modules/user';
 import UserCard from '../../components/UserCard';
+import { Container } from '../../components';
 
 class User extends Component {
   static readyOnActions(dispatch, params) {
@@ -35,7 +36,7 @@ class User extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <Helmet
           title={this.getUser() ? this.getUser().name : ''}
           meta={[
@@ -43,7 +44,7 @@ class User extends Component {
           ]}
         />
         {this.renderUser()}
-      </div>
+      </Container>
     );
   }
 }

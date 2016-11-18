@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'react-router/lib/Link';
 import Helmet from 'react-helmet';
+import MainMenu from './Navigation';
 // import styles from '../styles/app.scss';
 
 class App extends Component {
@@ -16,11 +17,7 @@ class App extends Component {
             {'name': 'description', 'content': 'My super dooper dope app'}
           ]}
         />
-        <nav>
-          <ul>
-            <li><Link to='/'>Users</Link></li>
-          </ul>
-        </nav>
+        <MainMenu />
         {this.props.children}
       </div>
     );
