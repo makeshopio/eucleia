@@ -21,12 +21,12 @@ class Users extends Component {
   renderUsers() {
     const users = this.props.users;
 
-    if (users.readyState === UsersActions.USERS_INVALID ||
-      users.readyState === UsersActions.USERS_FETCHING) {
+    if (users.status === UsersActions.USERS_INVALID ||
+      users.status === UsersActions.USERS_FETCHING) {
       return <p>Loading...</p>;
     }
 
-    if (users.readyState === UsersActions.USERS_FETCH_FAILED) {
+    if (users.status === UsersActions.USERS_FETCH_FAILED) {
       return <p>Failed to fetch users</p>;
     }
 

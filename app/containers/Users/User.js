@@ -23,11 +23,11 @@ class User extends Component {
   renderUser() {
     const user = this.getUser();
 
-    if (!user || user.readyState === UserActions.USER_FETCHING) {
+    if (!user || user.status === UserActions.USER_FETCHING) {
       return <p>Loading...</p>;
     }
 
-    if (user.readyState === UserActions.USER_FETCH_FAILED) {
+    if (user.status === UserActions.USER_FETCH_FAILED) {
       return <p>Failed to fetch user</p>;
     }
 

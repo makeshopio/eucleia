@@ -4,22 +4,22 @@ export const USERS_FETCHED = 'USERS_FETCHED';
 export const USERS_FETCH_FAILED = 'USERS_FETCH_FAILED';
 
 export default function users(state = {
-  readyState: USERS_INVALID,
+  status: USERS_INVALID,
   list: null
 }, action) {
   switch (action.type) {
     case USERS_FETCHING:
       return Object.assign({}, state, {
-        readyState: USERS_FETCHING
+        status: USERS_FETCHING
       });
     case USERS_FETCH_FAILED:
       return Object.assign({}, state, {
-        readyState: USERS_FETCH_FAILED,
+        status: USERS_FETCH_FAILED,
         error: action.error
       });
     case USERS_FETCHED:
       return Object.assign({}, state, {
-        readyState: USERS_FETCHED,
+        status: USERS_FETCHED,
         list: action.result
       });
     default:
@@ -46,8 +46,8 @@ function shouldFetchUsers(state) {
   const users = state.users;
 
   if (!users.list ||
-    users.readyState === USERS_FETCH_FAILED ||
-    users.readyState === USERS_INVALID) {
+    users.status === USERS_FETCH_FAILED ||
+    users.status === USERS_INVALID) {
     return true;
   }
 
